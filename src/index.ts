@@ -1,1 +1,4 @@
-console.log('Hi there!');
+import { User } from "./models/User";
+
+const user = new User({ id: 1, name: "SavedName", age: 30 });
+user.save();
