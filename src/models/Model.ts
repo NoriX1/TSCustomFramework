@@ -28,17 +28,17 @@ export class Model<T extends HasId> {
     private sync: Sync<T>
   ) {}
 
-  get on() {
-    return this.events.on;
-  }
-
-  get trigger() {
-    return this.events.trigger;
-  }
-
-  get get() {
-    return this.attributes.get;
-  }
+  // get on() {
+  //   return this.events.on;
+  // }
+  // bottom shorter equivalent of getter
+  // we can't use it when we assign a value in constructor (as it was in user before)
+  // constructor(attrs: ModelAttributes) { this.attributes = attrs }
+  // but can use with short syntax, as it now
+  // constructor(public attributes:ModelAttributes){}
+  on = this.events.on;
+  trigger = this.events.trigger;
+  get = this.attributes.get;
 
   set(update: T): void {
     this.attributes.set(update);
